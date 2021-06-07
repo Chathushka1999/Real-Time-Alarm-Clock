@@ -70,6 +70,7 @@ void ring_alarm(int song[]){
 	int divider = 0;
 	double noteDuration = 0;
 	/* iterate over the notes of the melody.*/
+	while(1){
 	for (int thisNote = 2; thisNote < notes * 2; thisNote = thisNote + 2) {
 		divider = song[thisNote + 1];                                    // calculates the duration of each note
 		if (divider > 0) {
@@ -79,23 +80,22 @@ void ring_alarm(int song[]){
 		noteDuration *= 1.5;}                                            // increases the duration in half for dotted notes
 		if (!(PINB & (1<<3))){
 			alarm_status=0;snooze=0;
-		break;}
+			return;}
 		else if((!(PINB & (1<<2))) && snooze<3 ){
-			snooze=snooze+1;
-			my_delay_ms(5000);
-			ring_alarm(song);}
+			break;}
 		else if((!(PINB & (1<<2))) && snooze==3 ){
 			snooze=0;alarm_status=0;
-			break;}
+			return;}
 		playNote( noteDuration * 0.9, song[thisNote]);                   // we only play the note for 90% of the duration, leaving 10% as a pause
 		my_delay_ms(noteDuration);                                       // Wait for the specif duration before playing the next note.
-		playNote(noteDuration, 0);                                       // stop the waveform generation before the next note.
+		playNote(1.0, 0);                                                // stop the waveform generation before the next note.
 	}
 	if (snooze>=0 && snooze<3 && alarm_status==1){
 		snooze=snooze+1;
 		my_delay_ms(5000);
-		ring_alarm(song);}
+		}
 	else if(snooze==3 && alarm_status==1){
 		alarm_status=0;snooze=0;
 		return;}
+	}
 }

@@ -160,22 +160,19 @@ void ring_alarm(int song[]){
                   noteDuration *= 1.5;}                                    // increases the duration in half for dotted notes 
           if (digitalRead(stop_alarm)==0){
                   alarm_status=0;snooze=0;
-                  break;}
+                  return;}
           else if(digitalRead(snooz)==0 && snooze<3 ){
-                  snooze=snooze+1;
-                  delay(5000);
-                  ring_alarm(song);}
+                  break;}
           else if(digitalRead(snooz)==0 && snooze==3 ){
                   snooze=0;alarm_status=0;
-                  break;}
+                  return;}
           tone(speaker, song[thisNote], noteDuration * 0.9);                // we only play the note for 90% of the duration, leaving 10% as a pause
           delay(noteDuration);                                              // Wait for the specief duration before playing the next note.
           noTone(speaker);                                                  // stop the waveform generation before the next note.
     }
    if (snooze>=0 && snooze<3 && alarm_status==1){
           snooze=snooze+1;
-          delay(5000);
-          ring_alarm(song);}
+          delay(5000);}
    else if(snooze==3 && alarm_status==1){
           alarm_status=0;snooze=0;
           return;}
