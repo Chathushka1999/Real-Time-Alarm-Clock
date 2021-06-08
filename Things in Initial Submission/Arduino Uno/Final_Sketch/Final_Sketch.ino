@@ -25,11 +25,8 @@ byte rowPins[ROWS] = {10,9,8,7}; /* connect to the row pinouts of the keypad */
 byte colPins[COLS] = {11,12,13}; /* connect to the column pinouts of the keypad */
 
 
-  pinMode(10, INPUT_PULLDOWN);
-  pinMode(10, INPUT_PULLDOWN);
-  pinMode(10, INPUT_PULLDOWN);
-  pinMode(10, INPUT_PULLDOWN);
-  pinMode(10, INPUT_PULLDOWN);
+
+  
 
 /* initialize an instance of class NewKeypad */
 Keypad cKeypad = Keypad( makeKeymap(Keys), rowPins, colPins, ROWS, COLS); 
@@ -39,6 +36,13 @@ Keypad cKeypad = Keypad( makeKeymap(Keys), rowPins, colPins, ROWS, COLS);
 void setup()
 {
   Serial.begin(9600);
+
+
+  
+  pinMode(10, INPUT);
+  pinMode(9, INPUT);
+  pinMode(8, INPUT);
+  pinMode(7, INPUT);
   
   pinMode(reset_Led, OUTPUT);
   pinMode(scroll_Led, OUTPUT);
