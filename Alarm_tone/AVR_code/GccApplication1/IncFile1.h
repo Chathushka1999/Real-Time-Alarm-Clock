@@ -90,6 +90,10 @@
 #define NOTE_DS8 4978
 #define REST      0
 
+#include <avr/io.h>
+#include <util/delay.h>
+
+
 
 int melody1[102] = {50,200,
 	NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16, NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16,
@@ -115,3 +119,4 @@ int melody2[170] = {84,140,
 	NOTE_E2, 8, NOTE_E2, 8, NOTE_E3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_D3, 8, NOTE_E2, 8, NOTE_E2, 8,
 	NOTE_C3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_AS2, -2
 };
+
