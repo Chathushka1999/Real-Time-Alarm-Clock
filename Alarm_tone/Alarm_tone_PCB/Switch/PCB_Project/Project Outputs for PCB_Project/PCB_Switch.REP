@@ -1,0 +1,64 @@
+*************************************************************
+FileName = PCB_Switch.GBR
+AutoAperture = True
+*************************************************************
+Generating : Bottom Layer
+      File : PCB_Switch_Copper_Signal_Bot.gbr
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : PCB_Switch_Soldermask_Bot.gbr
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : PCB_Switch_Legend_Top.gbr
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D23
+    D24
+    D25
+*************************************************************
+
+*************************************************************
+Generating : Profile
+      File : PCB_Switch_Profile.gbr
+
+
+Used DCodes :
+    D26
+*************************************************************
+

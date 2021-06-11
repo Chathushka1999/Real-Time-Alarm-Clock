@@ -1,0 +1,16 @@
+Output: Gerber X2 Files
+Type  : GerberX2
+From  : Project [PCB_Project.PrjPcb]
+   Generated File[PCB_Switch_Copper_Signal_Bot.gbr]
+   Generated File[PCB_Switch_Soldermask_Bot.gbr]
+   Generated File[PCB_Switch_Legend_Top.gbr]
+   Generated File[PCB_Switch_Profile.gbr]
+   Generated File[PCB_Switch.RUL]
+   Generated File[PCB_Switch.EXTREP]
+   Generated File[PCB_Switch.REP]
+
+
+Files Generated   : 7
+Documents Printed : 0
+
+Finished Output Generation At 09:27:49 AM On 08/06/2021

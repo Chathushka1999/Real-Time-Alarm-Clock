@@ -29,15 +29,17 @@ void my_delay_ms(double ms){
 }
 
 int main(void){
-	setup();
-    while(1) {
-		if(!(PINB & (1<<5))){
-			alarm_status=1;
-		    ring_alarm(melody1);}
-		else if(!(PINB & (1<<4))){
-			alarm_status=1;
-			ring_alarm(melody2);}
-    }
+	
+	
+ 	setup();
+     while(1) {
+ 		if(!(PINB & (1<<5))){
+ 			alarm_status=1;
+ 		    ring_alarm(melody1);}
+ 		else if(!(PINB & (1<<4))){
+ 			alarm_status=1;
+ 			ring_alarm(melody2);}
+     }
 }
 
  

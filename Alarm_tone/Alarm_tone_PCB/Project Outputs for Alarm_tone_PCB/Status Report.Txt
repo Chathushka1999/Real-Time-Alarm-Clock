@@ -1,0 +1,17 @@
+Output: Gerber X2 Files
+Type  : GerberX2
+From  : Project [Alarm_tone_PCB.PrjPcb]
+   Generated File[PCB1_Copper_Signal_Bot.gbr]
+   Generated File[PCB1_Soldermask_Bot.gbr]
+   Generated File[PCB1_Legend_Top.gbr]
+   Generated File[PCB1_Profile.gbr]
+   Generated File[PCB1_PTH_Drill.gbr]
+   Generated File[PCB1.RUL]
+   Generated File[PCB1.EXTREP]
+   Generated File[PCB1.REP]
+
+
+Files Generated   : 8
+Documents Printed : 0
+
+Finished Output Generation At 05:03:36 AM On 08/06/2021
