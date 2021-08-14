@@ -215,7 +215,6 @@ void Alarm_setting(){
 	LCD_SetCursor(0,2);
 	LCD_String("ALARM SETTINGS");
 	
-	int count;
 	
 	while(1){
 		// create alarm

@@ -5,7 +5,7 @@
 int Time_Set(uint8_t hour, uint8_t min){
 	
 	r_hour=hour,r_min =min;
-	int key=0;
+	key=0;
 	
 	
 	
@@ -70,7 +70,6 @@ int Date_Set(){
 	int r_date = rtc.date;
 	int r_month = rtc.month;
 	int r_year =rtc.year+2000;
-	int key;
 	int days;
 	
 	LCD_Clear();
@@ -158,7 +157,6 @@ int Date_Set(){
 }
 
 int A_Abort(){
-	int key;
 	LCD_Clear();
 	LCD_SetCursor(0,3);
 	LCD_String("PROCEED ");
@@ -178,7 +176,6 @@ int A_Abort(){
 }
 
 int Edit_Alarm(int count){
-	int key;
 	LCD_Clear();
 	LCD_SetCursor(0,2);
 	LCD_String("UPDATE NAME");
@@ -309,7 +306,6 @@ int Compare(int a, int b){
 }
 
 int Time_Compare(struct Alarm A, struct Alarm B){
-	int key;
 	
 	//compare year
 	key=Compare(A.Date[2],B.Date[2]);
@@ -385,10 +381,7 @@ void A_Sort(){
 				ha_count=count;}
 		}
 		
-//// check		
-		
-// 		else{
-// 			alarm_t--;}
+
 		
 	}
 	

@@ -26,7 +26,7 @@ typedef struct {
 #define Ds3232DateRegAddress     0x04u          // Address to access Ds3232 DATE register
 #define Ds3232ControlRegAddress  0x07u          // Address to access Ds3232 Control register
 
-int alarm_t=0;                                                                  // active alarm count
+                                                                  
 
 uint8_t encode(uint8_t value);
 uint8_t	decode(uint8_t value);
@@ -36,10 +36,11 @@ void I2C_Stop(void);
 void I2C_Write(uint8_t v_i2cData_u8);
 uint8_t I2C_Read(uint8_t v_ackOption_u8);
 void RTC_Initialize(void);
-void RTC_Set_Time(rtc_t *rtc);                  // set the given time to rtc module
-void RTC_Get_Time(rtc_t *rtc);                  // get the current keep track time in rtc
+void RTC_Set_Time(rtc_t *rtc);                  				// set the given time to rtc module
+void RTC_Get_Time(rtc_t *rtc);                  				// get the current keep track time in rtc
 
 
 //define the global variables
 rtc_t rtc;                                                      // defining the time storing variable
-int c_mode;                  									// 0 ->12 hour , 1-> 24hour
+int c_mode=0;                  									// 0 ->12 hour , 1-> 24hour
+int alarm_t=0;													// active alarm count

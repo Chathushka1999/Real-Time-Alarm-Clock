@@ -28,7 +28,7 @@ char  repeat_state[4][12]={"ONCE","DAILY","WEEKLY"};                            
 	
 int months[12]={31,29,31,30,31,30,31,31,30,31,30,31};                           // the days count in months
 	
-int key;                                                                        // handling the keys and find the which key preses
+
 int snooze_time=1;                                                              // snoozing time of the alarm
 
 

@@ -18,5 +18,7 @@ void Key_handle(int n);                        // handle level, items of the lev
 
 
 //declaring and initializing global variable
-int level;
+int level=0;
 int item[4]={0,0,0,0};
+int key=0;
+int count=0;

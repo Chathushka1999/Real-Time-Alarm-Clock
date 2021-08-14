@@ -27,7 +27,7 @@ int Key_Pressed(){
 }
 
 void Key_handle(int n){
-	int key= Key_Pressed();
+	key= Key_Pressed();
 	
 	if (key==1){
 		level++;
