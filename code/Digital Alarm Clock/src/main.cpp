@@ -1,11 +1,9 @@
-#include <RTC_DS3232.h>
-#include <Lcd_16X2.h>
-#include <Alarm.h>
-#include <Tone_Notes.h>
-#include <Keys.h>
-#include <Functions.h>
-#include <avr/io.h>
-#include <util/delay.h>
+#include "RTC_DS3232.h"
+#include "Lcd_16X2.h"
+#include "Alarm.h"
+#include "Tone_Notes.h"
+#include "Keys.h"
+#include "Functions.h"
 
 void setup();
 void Main_Menu();
@@ -386,7 +384,7 @@ void Alarm_setting(){
 					level--;
 					break;
 				}
-				else if(key=3){
+				else if(key==3){
 					while(alarms[count].Alarm_state==0){
 						count=(count+1)%6;}
 					continue;

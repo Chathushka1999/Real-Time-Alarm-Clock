@@ -1,7 +1,8 @@
-#pragma once
+#pragma once 
 
 #include <avr/io.h>
 #include <util/delay.h>
+
 #include "Functions.h"
 #include "RTC_DS3232.h"
 
@@ -15,7 +16,7 @@
 
 void LCD_Commandgiver(unsigned char);
 void LCD_Initializer (void);                //Initializes the LCD
-void LCD_String(char *);                    //Send string to LCD
+void LCD_String(const char*);                   //Send string to LCD
 void LCD_Num (int);
 void LCD_Character(unsigned char);
 void LCD_Clear();                           //Clears the display

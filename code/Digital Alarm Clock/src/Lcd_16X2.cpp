@@ -31,7 +31,7 @@ void LCD_Initializer (void)
 	_delay_ms(2);
 }
 
-void LCD_String(char *string_00)
+void LCD_String(const char *string_00)
 {
 	
 	for (int ci=0;string_00[ci]!=0;ci++)

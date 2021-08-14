@@ -41,27 +41,22 @@ int r_min;
 // define alarm struct for alarm attributes handling
 struct Alarm{
 		
-	int Name = 0;
-	int A_Time[2]={0,0};
-	int Date[3]={0,0,0};
-	int Tone=0;
-	int Repeat_state=0;
-	int Alarm_state=0;
+	int Name;
+	int A_Time[2];
+	int Date[3];
+	int Tone;
+	int Repeat_state;
+	int Alarm_state;
 	
 };                                                                  
 
-struct Alarm A1;                                                                // initiate the alarm in default value
-struct Alarm A2;
-struct Alarm A3;
-struct Alarm A4;
-struct Alarm A5;
-struct Alarm A6;
+
 struct Alarm Clock;
 
-struct  Alarm alarms[6] ={A1,A2,A3,A4,A5,A6};                                     
+struct  Alarm alarms[6];                                     
 
- struct Alarm C_Time;                                                             // for storing current time in alarm struct  for comparing alarm and current time
- struct Alarm h_alarm;                                                            // store the alarm which is first in alarms
+struct Alarm C_Time;                                                             // for storing current time in alarm struct  for comparing alarm and current time
+struct Alarm h_alarm;                                                            // store the alarm which is first in alarms
 
 
 
