@@ -33,10 +33,6 @@ int snooze_time=1;                                                              
 
 
 extern int ha_count;                                                                 // next alarm position
-		
-extern int r_hour;                                                                     // for storing the times of clock and alarm to make changes in globally
-extern int r_min;
-
 
 // define alarm struct for alarm attributes handling
 struct Alarm{
@@ -47,15 +43,10 @@ struct Alarm{
 	int Repeat_state;
 	int Alarm_state;
 	
-};                                                                  
+};                                                                                                        
 
-
-extern Alarm alarms[6];                                     
-
-extern Alarm Clock;
-extern Alarm C_Time;                                                             // for storing current time in alarm struct  for comparing alarm and current time
-extern Alarm h_alarm;                                                            // store the alarm which is first in alarms
-
+Alarm c_time;                                                        // for storing current time in same format as the alarm
+Alarm h_alarm;  													//Alarm class reference for the first alarm
 
 
 

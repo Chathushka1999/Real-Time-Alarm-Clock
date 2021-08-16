@@ -1,11 +1,12 @@
 #include "Functions.h"
 
 
-
-int Time_Set(uint8_t hour, uint8_t min){
+/*Getting input the current time... and get user input for clock time in a sequential manner as minute--> hour and return */
+int * Time_Set(uint8_t hour, uint8_t min){
 	
-	r_hour=hour,r_min =min;
-	key=0;
+	uint8_t r_hour=hour,r_min =min;
+	int t_key=0;
+	int r[3]={0,0,0};
 	
 	
 	
@@ -26,13 +27,13 @@ int Time_Set(uint8_t hour, uint8_t min){
 		_delay_ms(100);
 		
 		
-		key=Key_Pressed();
-		if (key==1){
+		t_key=Key_Pressed();
+		if (t_key==1){
 		break;	}
-		else if (key==2){return 0;}
-		else if(key==3){
+		else if (t_key==2){return r;}
+		else if(t_key==3){
 		r_hour=(r_hour+1)%24;}
-		else if(key==4){
+		else if(t_key==4){
 			r_hour=(r_hour-1+24)%24;
 		}
 	}
@@ -46,21 +47,19 @@ int Time_Set(uint8_t hour, uint8_t min){
 		_delay_ms(100);
 		
 		
-		key=Key_Pressed();
-		if (key==1){
-			//update time
-			// 				hour = r_hour;
-			// 				min  = r_min;
-		return 1;	}
-		else if (key==2){return 0;}
-		else if(key==3){
+		t_key=Key_Pressed();
+		if (t_key==1){
+			//Time updated sucessfully
+			r[0]=r_hour;
+			r[1]=r_min;
+			r[2]=1;
+			}
+		else if (t_key==2){return 0;}
+		else if(t_key==3){
 		r_min=(r_min+1)%60;}
-		else if(key==4){
+		else if(t_key==4){
 			r_min=(r_min-1+60)%60;
 		}
-		
-		
-		
 		
 	}
 }
@@ -351,6 +350,9 @@ int Time_Compare(struct Alarm A, struct Alarm B){
 	
 }
 
+
+/* comparing current time with alarm time and if the time is same set the alarm state as flase... If the alarm lag the current time set the alarm to next day... 
+compare state true alarms and sort out h_alarm as the first alarm in the list*/
 void A_Sort(){
 	h_alarm.A_Time[0]=0;
 	h_alarm.A_Time[1]=0;
@@ -359,16 +361,16 @@ void A_Sort(){
 	h_alarm.Date[2]=2040;
 	
 	// assign current date and time to clock
-	Clock.Date[0]=rtc.date;
-	Clock.Date[1]=rtc.month;
-	Clock.Date[2]=rtc.year;
-	Clock.A_Time[0]=rtc.hour;
-	Clock.A_Time[1]=rtc.min;
+	c_time.Date[0]=rtc.date;
+	c_time.Date[1]=rtc.month;
+	c_time.Date[2]=rtc.year;
+	c_time.A_Time[0]=rtc.hour;
+	c_time.A_Time[1]=rtc.min;
 
 	
 	for (int count=0; count<6;count++){
 		if(alarms[count].Alarm_state){
-			int key=Time_Compare(Clock,alarms[count]);
+			int key=Time_Compare(c_time,alarms[count]);
 			if(key==1){
 				alarms[count].Alarm_state=0;
 				alarm_t--;
@@ -392,13 +394,13 @@ void A_Sort(){
 int Alarm_Time(){
 	
 	
-	C_Time.Date[0]=rtc.date;
-	C_Time.Date[1]=rtc.month;
-	C_Time.Date[2]=rtc.year;
-	C_Time.A_Time[0]=rtc.hour;
-	C_Time.A_Time[1]=rtc.min;
+	c_time.Date[0]=rtc.date;
+	c_time.Date[1]=rtc.month;
+	c_time.Date[2]=rtc.year;
+	c_time.A_Time[0]=rtc.hour;
+	c_time.A_Time[1]=rtc.min;
 	//Alarm time
-	if(Time_Compare(C_Time,alarms[ha_count])==1){
+	if(Time_Compare(c_time,alarms[ha_count])==1){
 		return 1;}
 		
 	return 0;

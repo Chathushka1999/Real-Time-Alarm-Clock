@@ -23,6 +23,10 @@ rtc_t rtc;                                                      // defining the 
 int c_mode=0;                  									// 0 ->12 hour , 1-> 24hour
 int alarm_t=0;													// active alarm count
 
+//Creating Alarm class for Handling six alarms
+Alarm alarms[6];                                    
+
+
 
 void setup(){
 	Key_Setup();
@@ -101,7 +105,7 @@ void Main_Menu(){
 		LCD_SetCursor(0,5);
 		LCD_String("MAIN MENU");
 		
-		// date/time
+		// date/time(level=1)
 		if(item[0]==0){
 			LCD_SetCursor(1,2);
 			LCD_String("DATE/TIME");
@@ -118,7 +122,7 @@ void Main_Menu(){
 			Date_Time();
 		}
 		
-		// alarm setting
+		// alarm setting(level=1)
 		else if(item[0]==1){
 			LCD_SetCursor(1,2);
 			LCD_String("ALARM SETTINGS");
@@ -134,7 +138,7 @@ void Main_Menu(){
 			Alarm_setting();
 		}
 		
-		// clock mode changing
+		// clock mode changing(level=1)
 		else if(item[0]==2){
 			LCD_SetCursor(1,2);
 			LCD_String("CLOCK MODE");
@@ -157,6 +161,8 @@ void Main_Menu(){
 	
 }
 
+
+//Handling level2 and more of Date/Time option
 void Date_Time(){
 	LCD_Clear();
 	LCD_SetCursor(0,5);
@@ -164,7 +170,7 @@ void Date_Time(){
 	
 	while(1){
 		
-		// Time
+		// Time(level=2)
 		if(item[1]==0){
 			LCD_SetCursor(1,2);
 			LCD_String("SET TIME");
@@ -175,6 +181,8 @@ void Date_Time(){
 				item[level]=0;
 				return;}
 			
+
+			//level 3 hadling of Time set
 			if(Time_Set(rtc.hour, rtc.min)){
 				rtc.hour=r_hour;
 				rtc.min=r_min;
@@ -192,7 +200,7 @@ void Date_Time(){
 			return;
 		}
 		
-		// date
+		// date(level=2)
 		else if(item[1]==1) {
 			LCD_SetCursor(1,2);
 			LCD_String("SET DATE");
