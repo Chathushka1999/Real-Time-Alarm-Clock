@@ -5,12 +5,22 @@
 #include "Keys.h"
 #include "Functions.h"
 
+//Functions defined inside manin loop
 void setup();
 void Main_Menu();
 void Date_Time();                                                     // handling level-02 date/time sub menu
 void Alarm_setting();                                                 // handling level-02 alarm setting sub menu
 void Clock_Mode();                                                    // handling level-02 clock mode sub menu
 
+//Main Loop variables
+int key=0;														//Hadling key Press
+int level=0;													//Setup handling
+int item[4]={0,0,0,0};											// Moving with in items of a level
+int count=0;
+
+rtc_t rtc;                                                      // defining the time storing variable
+int c_mode=0;                  									// 0 ->12 hour , 1-> 24hour
+int alarm_t=0;													// active alarm count
 
 
 void setup(){

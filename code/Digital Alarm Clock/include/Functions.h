@@ -10,7 +10,7 @@ int Time_Set(uint8_t hour, uint8_t min );                                       
 int Date_Set();                                                                 // set and update the date
 int  A_Abort();                                                                 // handling the unappropriated returning
 int Edit_Alarm(int count);                                                // edit the alarm attributes
-//int Day_Increament(int count);                                                  // sum one day with given date
+void Day_Increament(int count);                                                  // sum one day with given date
 int Compare(int a, int b);                                                      
 int Time_Compare(struct Alarm A, struct Alarm B);
 void A_Sort();
@@ -23,24 +23,23 @@ void Delete_Alarm(int count);                                                   
 
 
 char  alarm_names[6][12]={"MORNING", "EVENING", "NIGNT" , "NAP-ALARM", "WORK-ALARM", "NOISY"};       // alarm names
-char  alarm_tones[5][12]={"MELODY", "STRANGE", "LOVELY", "ROCK", "POP"};        // alarm tones names
-char  repeat_state[4][12]={"ONCE","DAILY","WEEKLY"};                            // repeat mode variable names
+char  alarm_tones[5][12]={"MELODY", "STRANGE", "LOVELY", "ROCK", "POP"};        					// alarm tones names
+char  repeat_state[4][12]={"ONCE","DAILY","WEEKLY"};                            					// repeat mode variable names
 	
-int months[12]={31,29,31,30,31,30,31,31,30,31,30,31};                           // the days count in months
+int months[12]={31,29,31,30,31,30,31,31,30,31,30,31};                           			// the days count in months
 	
 
 int snooze_time=1;                                                              // snoozing time of the alarm
 
 
-int ha_count=0;                                                                 // next alarm position
+extern int ha_count;                                                                 // next alarm position
 		
-int r_hour;                                                                     // for storing the times of clock and alarm to make changes in globally
-int r_min;
+extern int r_hour;                                                                     // for storing the times of clock and alarm to make changes in globally
+extern int r_min;
 
 
 // define alarm struct for alarm attributes handling
 struct Alarm{
-		
 	int Name;
 	int A_Time[2];
 	int Date[3];
@@ -51,12 +50,11 @@ struct Alarm{
 };                                                                  
 
 
-struct Alarm Clock;
+extern Alarm alarms[6];                                     
 
-struct  Alarm alarms[6];                                     
-
-struct Alarm C_Time;                                                             // for storing current time in alarm struct  for comparing alarm and current time
-struct Alarm h_alarm;                                                            // store the alarm which is first in alarms
+extern Alarm Clock;
+extern Alarm C_Time;                                                             // for storing current time in alarm struct  for comparing alarm and current time
+extern Alarm h_alarm;                                                            // store the alarm which is first in alarms
 
 
 

@@ -6,8 +6,7 @@
 #include "Functions.h"
 #include "RTC_DS3232.h"
 
-//#define F_CPU 8000000UL
-
+#define F_CPU 8000000UL
 
 #define LCD_Dir_00 DDRD                     // LCD display connected pins
 #define LCDER_Port PORTD                    // LCD display connected pins I/O register
@@ -23,7 +22,7 @@ void LCD_Clear();                           //Clears the display
 void LCD_SetCursor (char, char);            //Send string to LCD with XY position
 void LCD_TwoDigit (int num);
 
-void Display_Time();                        // print the Time and Date HH:MM:SS, DD:MM:YYYY format
+void Display_Time(rtc_t d_rtc,int d_c_mode, int alarm_t)                      // print the Time and Date HH:MM:SS, DD:MM:YYYY format
 
 
 

@@ -16,9 +16,3 @@ void Key_Setup();                              // Set the push up button pins as
 int Key_Pressed();                             // Find the key pressing state and pressing key
 void Key_handle(int n);                        // handle level, items of the level value according to the key pressing
 
-
-//declaring and initializing global variable
-int level=0;
-int item[4]={0,0,0,0};
-int key=0;
-int count=0;

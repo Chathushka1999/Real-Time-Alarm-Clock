@@ -10,7 +10,7 @@
 //#define F_CPU 8000000UL
 
 
-typedef struct { 
+struct rtc_t{ 
 	uint8_t sec;                         //allocating int memory for storing seconds
 	uint8_t min;                         //allocating int memory for storing minutes
 	uint8_t hour;                        //allocating int memory for storing hours
@@ -18,7 +18,7 @@ typedef struct {
 	uint8_t date;                        //allocating int memory for storing date
 	uint8_t month;                       //allocating int memory for storing month
 	uint8_t year;                        //allocating int memory for storing year
-}rtc_t;
+};
 
 #define Ds3232ReadMode 0xD1u                    // DS3232 ID
 #define Ds3232WriteMode 0xD0u                   // DS3232 ID
@@ -40,7 +40,4 @@ void RTC_Set_Time(rtc_t *rtc);                  				// set the given time to rtc
 void RTC_Get_Time(rtc_t *rtc);                  				// get the current keep track time in rtc
 
 
-//define the global variables
-rtc_t rtc;                                                      // defining the time storing variable
-int c_mode=0;                  									// 0 ->12 hour , 1-> 24hour
-int alarm_t=0;													// active alarm count
+

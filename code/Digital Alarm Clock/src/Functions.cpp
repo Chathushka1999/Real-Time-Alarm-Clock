@@ -400,10 +400,7 @@ int Alarm_Time(){
 	//Alarm time
 	if(Time_Compare(C_Time,alarms[ha_count])==1){
 		return 1;}
-	
-	
-	
-	
+		
 	return 0;
 }
 

@@ -1,7 +1,6 @@
 #include "Keys.h"
 
 
-
 void Key_Setup(){
 	DDRB = 0b00000000;                                         // set the push button pins as input mode
 	PORTB = 0b01111100;
