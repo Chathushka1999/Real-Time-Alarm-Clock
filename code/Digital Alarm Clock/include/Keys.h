@@ -14,4 +14,4 @@
 
 void Key_Setup();                              // Set the push up button pins as Input pull up Mode
 int Key_Pressed();                             // Find the key pressing state and pressing key
-int* Key_handle(int n,int k_item[5]);                       // handle level, items of the level value according to the key pressing
+

@@ -27,30 +27,7 @@ int Key_Pressed(){
 	else{return 0;}
 }
 
-int* Key_handle(int n,int k_item[5]){
 
-	int k_key= Key_Pressed();
-	int k_level=k_item[4];
-
-	if (k_key==1){
-		k_level++;
-		LCD_Clear();}
-	else if(k_key==2){
-		k_level--;
-		LCD_Clear();	}
-	else if(k_key==3){
-		k_item[k_level-1]=(k_item[k_level-1]+1)%n;
-		LCD_SetCursor(1,0);
-		LCD_String("                ");}
-	else if(k_key==4){
-		k_item[k_level-1]=(k_item[k_level-1]-1+n)%n;
-		LCD_SetCursor(1,0);
-		LCD_String("                ");}
-
-
-	k_item[4]=k_level;
-	return k_item;
-}
 
 
 

@@ -6,6 +6,7 @@
 #include "Functions.h"
 
 //Functions defined inside manin loop
+void Key_handle(int n);
 void setup();
 void Main_Menu();
 void Date_Time();                                                     // handling level-02 date/time sub menu
@@ -531,5 +532,29 @@ void Clock_Mode(){
 }
 
 
+
+// Handling key presses across level and items
+void Key_handle(int n){
+
+	int k_key= Key_Pressed();
+
+	if (k_key==1){
+		level++;
+		LCD_Clear();}
+	else if(k_key==2){
+		level--;
+		LCD_Clear();	}
+	else if(k_key==3){
+		item[level-1]=(item[level-1]+1)%n;
+		LCD_SetCursor(1,0);
+		LCD_String("                ");}
+	else if(k_key==4){
+		item[level-1]=(item[level-1]-1+n)%n;
+		LCD_SetCursor(1,0);
+		LCD_String("                ");}
+
+	return ;
+	
+}
 
 
