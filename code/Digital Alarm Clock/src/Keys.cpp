@@ -6,6 +6,8 @@ void Key_Setup(){
 	PORTB = 0b01111100;
 }
 
+
+
 int Key_Pressed(){
 	int debounce_time=700;
 	int s_debounce_time=700; 
@@ -25,23 +27,31 @@ int Key_Pressed(){
 	else{return 0;}
 }
 
-void Key_handle(int n){
-	key= Key_Pressed();
-	
-	if (key==1){
-		level++;
+int* Key_handle(int n,int k_item[5]){
+
+	int k_key= Key_Pressed();
+	int k_level=k_item[4];
+
+	if (k_key==1){
+		k_level++;
 		LCD_Clear();}
-	else if(key==2){
-		level--;
+	else if(k_key==2){
+		k_level--;
 		LCD_Clear();	}
-	else if(key==3){
-		item[level-1]=(item[level-1]+1)%n;
+	else if(k_key==3){
+		k_item[k_level-1]=(k_item[k_level-1]+1)%n;
 		LCD_SetCursor(1,0);
 		LCD_String("                ");}
-	else if(key==4){
-		item[level-1]=(item[level-1]-1+n)%n;
+	else if(k_key==4){
+		k_item[k_level-1]=(k_item[k_level-1]-1+n)%n;
 		LCD_SetCursor(1,0);
 		LCD_String("                ");}
-	return;
+
+
+	k_item[4]=k_level;
+	return k_item;
 }
+
+
+
 
