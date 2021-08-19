@@ -4,7 +4,7 @@
 #include <util/delay.h>
 #include "RTC_DS3232.h"
 
-#define F_CPU 8000000UL
+//#define F_CPU 8000000UL
 
 #define LCD_Dir_00 DDRD                     // LCD display connected pins
 #define LCDER_Port PORTD                    // LCD display connected pins I/O register
