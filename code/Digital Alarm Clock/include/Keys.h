@@ -12,7 +12,6 @@
 #define SNOOZE_PIN 4
 
 
-void Key_Setup();                              // Set the push up button pins as Input pull up Mode
-int Key_Pressed();                             // Find the key pressing state and pressing key
-
-void Key_handle(int n,int* ITEM,int* LEVEL);
+void Key_Setup();                              
+int Key_Pressed();                             
+void Key_handle(int,int *,int *);

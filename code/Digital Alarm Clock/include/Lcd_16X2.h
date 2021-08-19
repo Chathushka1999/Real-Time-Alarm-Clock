@@ -3,7 +3,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "Functions.h"
 #include "RTC_DS3232.h"
 
 #define F_CPU 8000000UL

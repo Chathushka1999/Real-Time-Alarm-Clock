@@ -57,3 +57,9 @@ int ring_alarm(int song[]){
 	
 	return 1;
 }
+
+
+
+
+
+
