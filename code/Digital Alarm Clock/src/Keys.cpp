@@ -29,6 +29,27 @@ int Key_Pressed(){
 
 
 
+// Handling key presses across level and items
+void Key_handle(int n,int* ITEM, int* LEVEL){
 
+	int k_key= Key_Pressed();
 
+	if (k_key==1){
+		*LEVEL++;
+		LCD_Clear();}
+	else if(k_key==2){
+		*LEVEL--;
+		LCD_Clear();	}
+	else if(k_key==3){
+		ITEM[*LEVEL-1]=(ITEM[*LEVEL-1]+1)%n;
+		LCD_SetCursor(1,0);
+		LCD_String("                ");}
+	else if(k_key==4){
+		ITEM[*LEVEL-1]=(ITEM[*LEVEL-1]-1+n)%n;
+		LCD_SetCursor(1,0);
+		LCD_String("                ");}
+
+	return ;
+	
+}
 

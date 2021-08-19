@@ -6,7 +6,7 @@
 #include "Functions.h"
 
 //Functions defined inside manin loop
-void Key_handle(int n);
+
 void setup();
 void Main_Menu();
 void Date_Time();                                                     // handling level-02 date/time sub menu
@@ -109,7 +109,7 @@ void Main_Menu(){
 		if(item[0]==0){
 			LCD_SetCursor(1,2);
 			LCD_String("DATE/TIME");
-			Key_handle(3);
+			Key_handle(3,item, &level);
 			
 			if(level==1){
 			continue;}
@@ -126,7 +126,7 @@ void Main_Menu(){
 		else if(item[0]==1){
 			LCD_SetCursor(1,2);
 			LCD_String("ALARM SETTINGS");
-			Key_handle(3);
+			Key_handle(3,item, &level);
 			
 			if(level==1){continue;}
 			else if(level==0){
@@ -142,7 +142,7 @@ void Main_Menu(){
 		else if(item[0]==2){
 			LCD_SetCursor(1,2);
 			LCD_String("CLOCK MODE");
-			Key_handle(3);
+			Key_handle(3,item, &level);
 			
 			if(level==1){continue;}
 			else if(level==0){
@@ -174,7 +174,7 @@ void Date_Time(){
 		if(item[1]==0){
 			LCD_SetCursor(1,2);
 			LCD_String("SET TIME");
-			Key_handle(2);
+			Key_handle(2,item, &level);
 			
 			if(level==2){continue;}
 			else if(level==1){
@@ -183,9 +183,10 @@ void Date_Time(){
 			
 
 			//level 3 hadling of Time set
-			if(Time_Set(rtc.hour, rtc.min)){
-				rtc.hour=r_hour;
-				rtc.min=r_min;
+			int time_set_reference[3]                   {0,0,0}=Time_Set(rtc.hour, rtc.min);
+			if(time_set_reference[2]==1){
+				rtc.hour=time_set_reference[0];
+				rtc.min=time_set_reference[1];
 				RTC_Set_Time(&rtc);
 				
 				LCD_Clear();
@@ -204,7 +205,7 @@ void Date_Time(){
 		else if(item[1]==1) {
 			LCD_SetCursor(1,2);
 			LCD_String("SET DATE");
-			Key_handle(2);
+			Key_handle(2,item, &level);
 			
 			if(level==2){
 			continue;}
@@ -240,7 +241,7 @@ void Alarm_setting(){
 		if(item[1]==0){
 			LCD_SetCursor(1,2);
 			LCD_String("CREATE ALARM");
-			Key_handle(2);
+			Key_handle(2,item, &level);
 			
 			if(level==2){continue;}
 			else if(level==1){
@@ -283,7 +284,7 @@ void Alarm_setting(){
 		else if(item[1]==1) {
 			LCD_SetCursor(1,2);
 			LCD_String("EDIT/DELETE");
-			Key_handle(3);
+			Key_handle(3,item, &level);
 			
 			if(level==2){
 				continue;}
@@ -340,7 +341,7 @@ void Alarm_setting(){
 							LCD_SetCursor(1,3);
 							LCD_String("EDIT ");
 							
-							Key_handle(2);
+							Key_handle(2,item, &level);
 							
 							if(level==4){
 								continue;}
@@ -356,7 +357,7 @@ void Alarm_setting(){
 						else if(item[3]==1){
 							LCD_SetCursor(1,3);
 							LCD_String("DELETE");
-							Key_handle(2);
+							Key_handle(2,item, &level);
 							
 							if(level==4){
 								continue;}
@@ -424,7 +425,7 @@ void Alarm_setting(){
 		else if(item[1]==2) {
 			LCD_SetCursor(1,2);
 			LCD_String("DELETE ALL");
-			Key_handle(3);
+			Key_handle(3,item, &level);
 			
 			if(level==2){
 				continue;}
@@ -492,7 +493,7 @@ void Clock_Mode(){
 		LCD_SetCursor(1,1);
 		LCD_String("24-HOUR");
 		
-		Key_handle(2);
+		Key_handle(2,item, &level);
 		
 		if(level==1){
 			break;}
@@ -516,7 +517,7 @@ void Clock_Mode(){
 			LCD_SetCursor(1,1);
 			LCD_String("12-HOUR");
 			
-			Key_handle(2);
+			Key_handle(2,item, &level);
 			
 			if(level==1){
 				item[1]=0;
@@ -541,28 +542,6 @@ void Clock_Mode(){
 
 
 
-// Handling key presses across level and items
-void Key_handle(int n){
 
-	int k_key= Key_Pressed();
-
-	if (k_key==1){
-		level++;
-		LCD_Clear();}
-	else if(k_key==2){
-		level--;
-		LCD_Clear();	}
-	else if(k_key==3){
-		item[level-1]=(item[level-1]+1)%n;
-		LCD_SetCursor(1,0);
-		LCD_String("                ");}
-	else if(k_key==4){
-		item[level-1]=(item[level-1]-1+n)%n;
-		LCD_SetCursor(1,0);
-		LCD_String("                ");}
-
-	return ;
-	
-}
 
 

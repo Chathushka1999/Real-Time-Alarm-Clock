@@ -6,7 +6,7 @@
 #include <util/delay.h>
 
 
-int Time_Set(uint8_t hour, uint8_t min );                                       // update the time(alarm/clock) with buttons
+int * Time_Set(uint8_t hour, uint8_t min );                                       // update the time(alarm/clock) with buttons
 int Date_Set();                                                                 // set and update the date
 int  A_Abort();                                                                 // handling the unappropriated returning
 int Edit_Alarm(int count);                                                // edit the alarm attributes
