@@ -2,7 +2,6 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
-
 #include "RTC_DS3232.h"
 
 #define F_CPU 8000000UL
@@ -12,6 +11,8 @@
 #define RSel PD0                            //RS Pin
 #define ENable PD1                          //E Pin
 
+rtc_t rtc;
+
 void LCD_Commandgiver(unsigned char);
 void LCD_Initializer (void);                //Initializes the LCD
 void LCD_String(const char*);                   //Send string to LCD
@@ -19,9 +20,9 @@ void LCD_Num (int);
 void LCD_Character(unsigned char);
 void LCD_Clear();                           //Clears the display
 void LCD_SetCursor (char, char);            //Send string to LCD with XY position
-void LCD_TwoDigit (int num);
+void LCD_TwoDigit (int);
 
-void Display_Time(rtc_t d_rtc,int d_c_mode, int alarm_t)                      // print the Time and Date HH:MM:SS, DD:MM:YYYY format
+void Display_Time(int)    ;                  // print the Time and Date HH:MM:SS, DD:MM:YYYY format
 
 
 

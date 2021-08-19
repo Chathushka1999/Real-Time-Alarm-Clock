@@ -5,17 +5,16 @@
 #include "Alarm.h"
 #include "RTC_DS3232.h"
 #include "Keys.h"
-
+#include "Tone_Notes.h"
 
 /* variables */
 //keep the track of number of true alarms
-extern int alarm_t;
+int alarm_t=0;
 //snooze time
 int snooze_time = 1;
 //index reference for the first alarm
-extern int ha_count;
-//handling number of days in a month
-int* a_months[12]; 
+int ha_count=0;
+
 
 //alarm parameters
 char alarm_names[6][12] = {"MORNING", "EVENING", "NIGNT", "NAP-ALARM", "WORK-ALARM", "NOISY"};
@@ -55,3 +54,4 @@ int Edit_Alarm(int);
 int  A_Abort();
 
 void Alarm_setting(int *, int *);
+void Alarm_Time_Functionality();

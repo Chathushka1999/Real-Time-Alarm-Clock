@@ -1,82 +1,81 @@
 #include "Alarm2.h"
 
-//variables to make the excution easy
-int a_months[12]={31,29,31,30,31,30,31,31,30,31,30,31}; 
+
 
 /*Getting input the current time... and get user input for clock time in a sequential manner as minute--> hour and return */
 int alarm_Time_Set(int num)
 {
-	//keeping reference to the change rather than changing at once
-	uint8_t r_hour = alarms[num].A_Time[0], r_min = alarms[num].A_Time[1];
-	//variable for hadling key pressed inside the function Time_Set
-	int t_key = 0;
+    //keeping reference to the change rather than changing at once
+    uint8_t r_hour = alarms[num].A_Time[0], r_min = alarms[num].A_Time[1];
+    //variable for hadling key pressed inside the function Time_Set
+    int t_key = 0;
 
-	LCD_Clear();
-	LCD_SetCursor(0, 1);
-	LCD_String("UPDATE TIME");
-	LCD_SetCursor(1, 3);
-	LCD_TwoDigit(r_hour);
-	LCD_String(":");
-	LCD_TwoDigit(r_min);
+    LCD_Clear();
+    LCD_SetCursor(0, 1);
+    LCD_String("UPDATE TIME");
+    LCD_SetCursor(1, 3);
+    LCD_TwoDigit(r_hour);
+    LCD_String(":");
+    LCD_TwoDigit(r_min);
 
-	while (1)
-	{
-		LCD_SetCursor(1, 3);
-		LCD_String("  ");
-		_delay_ms(100);
-		LCD_SetCursor(1, 3);
-		LCD_TwoDigit(r_hour);
-		_delay_ms(100);
+    while (1)
+    {
+        LCD_SetCursor(1, 3);
+        LCD_String("  ");
+        _delay_ms(100);
+        LCD_SetCursor(1, 3);
+        LCD_TwoDigit(r_hour);
+        _delay_ms(100);
 
-		t_key = Key_Pressed();
-		if (t_key == 1)
-		{
-			break;
-		}
-		else if (t_key == 2)
-		{
-			return 0;
-		}
-		else if (t_key == 3)
-		{
-			r_hour = (r_hour + 1) % 24;
-		}
-		else if (t_key == 4)
-		{
-			r_hour = (r_hour - 1 + 24) % 24;
-		}
-	}
+        t_key = Key_Pressed();
+        if (t_key == 1)
+        {
+            break;
+        }
+        else if (t_key == 2)
+        {
+            return 0;
+        }
+        else if (t_key == 3)
+        {
+            r_hour = (r_hour + 1) % 24;
+        }
+        else if (t_key == 4)
+        {
+            r_hour = (r_hour - 1 + 24) % 24;
+        }
+    }
 
-	while (1)
-	{
-		LCD_SetCursor(1, 6);
-		LCD_String("  ");
-		_delay_ms(100);
-		LCD_SetCursor(1, 6);
-		LCD_TwoDigit(r_min);
-		_delay_ms(100);
+    while (1)
+    {
+        LCD_SetCursor(1, 6);
+        LCD_String("  ");
+        _delay_ms(100);
+        LCD_SetCursor(1, 6);
+        LCD_TwoDigit(r_min);
+        _delay_ms(100);
 
-		t_key = Key_Pressed();
-		if (t_key == 1)
-		{
-			//update time sucessfully and return 1 to indicate functions happened successufully
-            alarms[num].A_Time[0]=r_hour;
-            alarms[num].A_Time[1]=r_min;
-			return 1;
-		}
-		else if (t_key == 2)
-		{
-			return 0;
-		}
-		else if (t_key == 3)
-		{
-			r_min = (r_min + 1) % 60;
-		}
-		else if (t_key == 4)
-		{
-			r_min = (r_min - 1 + 60) % 60;
-		}
-	}
+        t_key = Key_Pressed();
+        if (t_key == 1)
+        {
+            //update time sucessfully and return 1 to indicate functions happened successufully
+            alarms[num].A_Time[0] = r_hour;
+            alarms[num].A_Time[1] = r_min;
+            return 1;
+        }
+        else if (t_key == 2)
+        {
+            return 0;
+        }
+        else if (t_key == 3)
+        {
+            r_min = (r_min + 1) % 60;
+        }
+        else if (t_key == 4)
+        {
+            r_min = (r_min - 1 + 60) % 60;
+        }
+    }
 }
 
 /* comparing current time with alarm time and if the time is same set the
@@ -172,7 +171,7 @@ and decrease the count true alarms by 1*/
 void Delete_Alarm(int alarm_num)
 {
     alarms[alarm_num].Alarm_state = 0;
-    alarm_t--;
+    alarm_t-=1;
     A_Sort();
 }
 
@@ -185,7 +184,8 @@ void Day_Increament(int count)
     int n_month = alarms[count].Date[1];
     int n_year = alarms[count].Date[2];
 
-    if (n_date > a_months[n_month - 1])
+    int a_month[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (n_date > a_month[n_month - 1])
     {
         n_date = 1;
         n_month++;
@@ -330,7 +330,7 @@ int Edit_Alarm(int count)
         }
     }
 
-    if (!(alarm_Time_Set(count))
+    if (!(alarm_Time_Set(count)))
     {
         return 0;
     }
@@ -423,22 +423,20 @@ int A_Abort()
     LCD_String("PROCEED ");
     LCD_SetCursor(1, 0);
     LCD_String("WITHOUT SAVE?");
-
+    int abort_key = 0;
     while (1)
     {
-        key = Key_Pressed();
-        if (key == 1)
+        abort_key = Key_Pressed();
+        if (abort_key == 1)
         {
             return 1;
         }
-        else if (key == 2)
+        else if (abort_key == 2)
         {
             return 0;
         }
     }
 }
-
-
 
 /* Handling the things once enter alarm setting */
 void Alarm_setting(int *LEVEL, int *ITEM)
@@ -475,7 +473,7 @@ void Alarm_setting(int *LEVEL, int *ITEM)
                 {
                     if (Edit_Alarm(count))
                     {
-                        alarm_t++;
+                        alarm_t+=1;
                         LCD_Clear();
                         LCD_SetCursor(0, 1);
                         LCD_String("ALARM CREATED");
@@ -563,7 +561,7 @@ void Alarm_setting(int *LEVEL, int *ITEM)
 
                 if (a_key == 1)
                 {
-                    *LEVEL++;
+                    *LEVEL+=1;
                     LCD_Clear();
                     while (1)
                     {
@@ -648,7 +646,7 @@ void Alarm_setting(int *LEVEL, int *ITEM)
                 else if (a_key == 2)
                 {
                     LCD_Clear();
-                    *LEVEL--;
+                    *LEVEL-=1;
                     break;
                 }
                 else if (a_key == 3)
@@ -738,4 +736,54 @@ void Alarm_setting(int *LEVEL, int *ITEM)
             return;
         }
     }
+}
+
+
+/* Things happening during an alarm time */
+void Alarm_Time_Functionality()
+{ // check the alarm time with current time for activate the alarm
+    int s_value;
+    int position = alarms[ha_count].Tone;
+    LCD_Clear();
+    LCD_SetCursor(0, 3);
+    LCD_String(" ALARM :");
+    LCD_Num(ha_count + 1);
+    LCD_SetCursor(1, 2);
+    LCD_String(alarm_names[alarms[ha_count].Name]);
+
+    if (position == 0)
+    {
+        s_value = ring_alarm(melody1);
+    }
+    else if (position == 1)
+    {
+         s_value= ring_alarm(melody2);
+    }
+    else if (position == 2)
+    {
+        s_value = ring_alarm(melody3);
+    }
+    //				else if(position==3){key=ring_alarm(melody4);}
+    // 				else {key=ring_alarm(melody5);}
+
+    if (s_value == 1)
+    {
+        // repeat mode analyzing
+        Repeat_Handle(ha_count);
+    }
+    else
+    {
+        // snooze analyzing
+        if (alarms[ha_count].A_Time[1] < (60 - snooze_time))
+        {
+            alarms[ha_count].A_Time[1] = alarms[ha_count].A_Time[1] + snooze_time;
+        }
+        else
+        {
+            alarms[ha_count].A_Time[1] = (alarms[ha_count].A_Time[1]) % snooze_time;
+            alarms[ha_count].A_Time[0]++;
+        }
+    }
+    A_Sort();
+    LCD_Clear();
 }

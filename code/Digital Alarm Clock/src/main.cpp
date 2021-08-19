@@ -16,7 +16,6 @@ int key = 0;				//Hadling key Press
 int level = 0;				//Setup handling
 int item[4] = {0, 0, 0, 0}; // Moving with in items of a level
 
-rtc_t rtc;		// defining the time storing variable
 int c_mode = 0; // 0 ->12 hour , 1-> 24hour
 
 int main()
@@ -25,7 +24,6 @@ int main()
 
 	while (1)
 	{
-		RTC_Get_Time(&rtc); // Get Date and time from DS3232 for refreshing the Time
 		if (Key_Pressed() == 1)
 		{ // check the key pressing status go to the main menu
 			level = level + 1;
@@ -35,55 +33,12 @@ int main()
 		}
 
 		if (Alarm_Time())
-		{ // check the alarm time with current time for activate the alarm
-
-			int position = alarms[ha_count].Tone;
-			LCD_Clear();
-			LCD_SetCursor(0, 3);
-			LCD_String(" ALARM :");
-			LCD_Num(ha_count + 1);
-			LCD_SetCursor(1, 2);
-			LCD_String(alarm_names[alarms[ha_count].Name]);
-
-			if (position == 0)
-			{
-				key = ring_alarm(melody1);
-			}
-			else if (position == 1)
-			{
-				key = ring_alarm(melody2);
-			}
-			else if (position == 2)
-			{
-				key = ring_alarm(melody3);
-			}
-			//				else if(position==3){key=ring_alarm(melody4);}
-			// 				else {key=ring_alarm(melody5);}
-
-			if (key == 1)
-			{
-				// repeat mode analyzing
-				Repeat_Handle(ha_count);
-			}
-			else
-			{
-				// snooze analyzing
-				if (alarms[ha_count].A_Time[1] < (60 - snooze_time))
-				{
-					alarms[ha_count].A_Time[1] = alarms[ha_count].A_Time[1] + snooze_time;
-				}
-				else
-				{
-					alarms[ha_count].A_Time[1] = (alarms[ha_count].A_Time[1]) % snooze_time;
-					alarms[ha_count].A_Time[0]++;
-				}
-			}
-			A_Sort();
-			LCD_Clear();
+		{
+			Alarm_Time_Functionality();
 		}
 		else
 		{
-			Display_Time(); // Display the current Time and Date on display
+			Display_Time(c_mode); // Display the current Time and Date on display
 		}
 	}
 }

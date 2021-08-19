@@ -1,10 +1,5 @@
 #include "Time.h"
 
-int months[12]={31,29,31,30,31,30,31,31,30,31,30,31}; 
-rtc_t t_rtc;
-
-
-
 
 /*Getting input the current time... and get user input for clock time in a sequential manner as minute--> hour and return */
 int Time_Set()
@@ -161,6 +156,8 @@ int Date_Set()
 		}
 	}
 
+
+	int months[12]={31,29,31,30,31,30,31,31,30,31,30,31}; 
 	days = months[r_month - 1];
 
 	while (1)
@@ -199,7 +196,6 @@ int Date_Set()
 		}
 	}
 }
-
 
 void Date_Time(int* LEVEL, int* ITEM)
 {
