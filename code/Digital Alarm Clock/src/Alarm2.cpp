@@ -1,6 +1,117 @@
 #include "Alarm2.h"
 
+/* variables */
+//keep the track of number of true alarms
+int alarm_t = 0;
+//snooze time
+int snooze_time = 1;
+//index reference for the first alarm
+int ha_count = 0;
 
+//alarm parameters
+char alarm_names[6][12] = {"MORNING", "EVENING", "NIGNT", "NAP-ALARM", "WORK-ALARM", "NOISY"};
+char alarm_tones[5][12] = {"MELODY", "STRANGE", "LOVELY", "ROCK", "POP"};
+char repeat_state[4][12] = {"ONCE", "DAILY", "WEEKLY"};
+
+//keeping track of current time in alarm format
+Alarm c_time;
+//reference for the first alarm
+Alarm h_alarm;
+//Creating Alarm class for Handling six alarms
+Alarm alarms[6];
+
+/* Things come under notes */
+int melody1[102] = {50,200,
+	NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16, NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16,
+	NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16, NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16,
+	NOTE_G4,8, NOTE_C4,8, NOTE_E4,16, NOTE_F4,16, NOTE_G4,8, NOTE_C4,8, NOTE_E4,16, NOTE_F4,16,
+	NOTE_G4,8, NOTE_C4,8, NOTE_E4,16, NOTE_F4,16, NOTE_G4,8, NOTE_C4,8, NOTE_E4,16, NOTE_F4,16,
+	NOTE_G4,-4, NOTE_C4,-4,NOTE_DS4,16, NOTE_F4,16, NOTE_G4,4, NOTE_C4,4, NOTE_DS4,16, NOTE_F4,16,
+	NOTE_D4,-1,NOTE_F4,-4, NOTE_AS3,-4,NOTE_DS4,16, NOTE_D4,16, NOTE_F4,4, NOTE_AS3,-4,
+	NOTE_DS4,16, NOTE_D4,16, NOTE_C4,-1
+};
+
+int melody2[170] = {84,140,
+	NOTE_E2, 8, NOTE_E2, 8, NOTE_E3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_D3, 8, NOTE_E2, 8, NOTE_E2, 8, //1
+	NOTE_C3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_AS2, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_B2, 8, NOTE_C3, 8,
+	NOTE_E2, 8, NOTE_E2, 8, NOTE_E3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_D3, 8, NOTE_E2, 8, NOTE_E2, 8,
+	NOTE_C3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_AS2, -2,
+	NOTE_E2, 8, NOTE_E2, 8, NOTE_E3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_D3, 8, NOTE_E2, 8, NOTE_E2, 8, //5
+	NOTE_C3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_AS2, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_B2, 8, NOTE_C3, 8,
+	NOTE_E2, 8, NOTE_E2, 8, NOTE_E3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_D3, 8, NOTE_E2, 8, NOTE_E2, 8,
+	NOTE_C3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_AS2, -2,
+	NOTE_E2, 8, NOTE_E2, 8, NOTE_E3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_D3, 8, NOTE_E2, 8, NOTE_E2, 8, //9
+	NOTE_C3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_AS2, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_B2, 8, NOTE_C3, 8,
+	NOTE_E2, 8, NOTE_E2, 8, NOTE_E3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_D3, 8, NOTE_E2, 8, NOTE_E2, 8,
+	NOTE_C3, 8, NOTE_E2, 8, NOTE_E2, 8, NOTE_AS2, -2
+};
+
+// Asa branca - Luiz Gonzaga
+int melody3[186] ={92,120,
+	NOTE_G4,8, NOTE_A4,8, NOTE_B4,4, NOTE_D5,4, NOTE_D5,4, NOTE_B4,4,
+	NOTE_C5,4, NOTE_C5,2, NOTE_G4,8, NOTE_A4,8,
+	NOTE_B4,4, NOTE_D5,4, NOTE_D5,4, NOTE_C5,4,
+
+	NOTE_B4,2, REST,8, NOTE_G4,8, NOTE_G4,8, NOTE_A4,8,
+	NOTE_B4,4, NOTE_D5,4, REST,8, NOTE_D5,8, NOTE_C5,8, NOTE_B4,8,
+	NOTE_G4,4, NOTE_C5,4, REST,8, NOTE_C5,8, NOTE_B4,8, NOTE_A4,8,
+
+	NOTE_A4,4, NOTE_B4,4, REST,8, NOTE_B4,8, NOTE_A4,8, NOTE_G4,8,
+	NOTE_G4,2, REST,8, NOTE_G4,8, NOTE_G4,8, NOTE_A4,8,
+	NOTE_B4,4, NOTE_D5,4, REST,8, NOTE_D5,8, NOTE_C5,8, NOTE_B4,8,
+
+	NOTE_G4,4, NOTE_C5,4, REST,8, NOTE_C5,8, NOTE_B4,8, NOTE_A4,8,
+	NOTE_A4,4, NOTE_B4,4, REST,8, NOTE_B4,8, NOTE_A4,8, NOTE_G4,8,
+	NOTE_G4,4, NOTE_F5,8, NOTE_D5,8, NOTE_E5,8, NOTE_C5,8, NOTE_D5,8, NOTE_B4,8,
+
+	NOTE_C5,8, NOTE_A4,8, NOTE_B4,8, NOTE_G4,8, NOTE_A4,8, NOTE_G4,8, NOTE_E4,8, NOTE_G4,8,
+	NOTE_G4,4, NOTE_F5,8, NOTE_D5,8, NOTE_E5,8, NOTE_C5,8, NOTE_D5,8, NOTE_B4,8,
+	NOTE_C5,8, NOTE_A4,8, NOTE_B4,8, NOTE_G4,8, NOTE_A4,8, NOTE_G4,8, NOTE_E4,8, NOTE_G4,8,
+	NOTE_G4,-2, REST,4
+	
+};
+
+// Baby Elephant Walk
+int melody4[144] = { 71,132,
+	NOTE_C4,-8, NOTE_E4,16, NOTE_G4,8, NOTE_C5,8, NOTE_E5,8, NOTE_D5,8, NOTE_C5,8, NOTE_A4,8,
+	NOTE_FS4,8, NOTE_G4,8, REST,4, REST,2,
+	NOTE_C4,-8, NOTE_E4,16, NOTE_G4,8, NOTE_C5,8, NOTE_E5,8, NOTE_D5,8, NOTE_C5,8, NOTE_A4,8,
+	NOTE_G4,-2, NOTE_A4,8, NOTE_DS4,1,
+	
+	NOTE_A4,8,
+	NOTE_E4,8, NOTE_C4,8, REST,4, REST,2,
+	NOTE_C4,-8, NOTE_E4,16, NOTE_G4,8, NOTE_C5,8, NOTE_E5,8, NOTE_D5,8, NOTE_C5,8, NOTE_A4,8,
+	NOTE_FS4,8, NOTE_G4,8, REST,4, REST,4, REST,8, NOTE_G4,8,
+	NOTE_D5,4, NOTE_D5,4, NOTE_B4,8, NOTE_G4,8, REST,8, NOTE_G4,8,
+	
+	NOTE_C5,4, NOTE_C5,4, NOTE_AS4,16, NOTE_C5,16, NOTE_AS4,16, NOTE_G4,16, NOTE_F4,8, NOTE_DS4,8,
+	NOTE_FS4,4, NOTE_FS4,4, NOTE_F4,16, NOTE_G4,16, NOTE_F4,16, NOTE_DS4,16, NOTE_C4,8, NOTE_G4,8,
+	NOTE_AS4,8, NOTE_C5,8, REST,4, REST,2,
+};
+
+//Odetojay
+int melody5[126] = { 62,114,
+	NOTE_E4,4,  NOTE_E4,4,  NOTE_F4,4,  NOTE_G4,4,
+	NOTE_G4,4,  NOTE_F4,4,  NOTE_E4,4,  NOTE_D4,4,
+	NOTE_C4,4,  NOTE_C4,4,  NOTE_D4,4,  NOTE_E4,4,
+	NOTE_E4,-4, NOTE_D4,8,  NOTE_D4,2,
+
+	NOTE_E4,4,  NOTE_E4,4,  NOTE_F4,4,  NOTE_G4,4,
+	NOTE_G4,4,  NOTE_F4,4,  NOTE_E4,4,  NOTE_D4,4,
+	NOTE_C4,4,  NOTE_C4,4,  NOTE_D4,4,  NOTE_E4,4,
+	NOTE_D4,-4,  NOTE_C4,8,  NOTE_C4,2,
+
+	NOTE_D4,4,  NOTE_D4,4,  NOTE_E4,4,  NOTE_C4,4,
+	NOTE_D4,4,  NOTE_E4,8,  NOTE_F4,8,  NOTE_E4,4, NOTE_C4,4,
+	NOTE_D4,4,  NOTE_E4,8,  NOTE_F4,8,  NOTE_E4,4, NOTE_D4,4,
+	NOTE_C4,4,  NOTE_D4,4,  NOTE_G3,2,
+
+	NOTE_E4,4,  NOTE_E4,4,  NOTE_F4,4,  NOTE_G4,4,
+	NOTE_G4,4,  NOTE_F4,4,  NOTE_E4,4,  NOTE_D4,4,
+	NOTE_C4,4,  NOTE_C4,4,  NOTE_D4,4,  NOTE_E4,4,
+	NOTE_D4,-4,  NOTE_C4,8,  NOTE_C4,2
+	
+};
 
 /*Getting input the current time... and get user input for clock time in a sequential manner as minute--> hour and return */
 int alarm_Time_Set(int num)
@@ -90,6 +201,7 @@ void A_Sort()
     h_alarm.Date[2] = 2040;
 
     // assign current date and time to clock
+    rtc_t a_rtc;
     RTC_Get_Time(&a_rtc);
     c_time.Date[0] = a_rtc.date;
     c_time.Date[1] = a_rtc.month;
@@ -151,6 +263,7 @@ void Repeat_Handle(int posi)
 they are same and return 0 otherwiswe*/
 int Alarm_Time()
 {
+    rtc_t a_rtc;
     RTC_Get_Time(&a_rtc);
     c_time.Date[0] = a_rtc.date;
     c_time.Date[1] = a_rtc.month;
@@ -158,11 +271,12 @@ int Alarm_Time()
     c_time.A_Time[0] = a_rtc.hour;
     c_time.A_Time[1] = a_rtc.min;
     //Alarm time
+    if (alarm_t>0){
     if (Time_Compare(c_time, alarms[ha_count]) == 1)
-    {
-        return 1;
+        {   
+            return 1;
+        }
     }
-
     return 0;
 }
 
@@ -171,7 +285,7 @@ and decrease the count true alarms by 1*/
 void Delete_Alarm(int alarm_num)
 {
     alarms[alarm_num].Alarm_state = 0;
-    alarm_t-=1;
+    alarm_t -= 1;
     A_Sort();
 }
 
@@ -406,7 +520,8 @@ int Edit_Alarm(int count)
     }
 
     alarms[count].Alarm_state = 1;
-
+    rtc_t a_rtc;
+    RTC_Get_Time(&a_rtc);
     alarms[count].Date[0] = a_rtc.date;
     alarms[count].Date[1] = a_rtc.month;
     alarms[count].Date[2] = a_rtc.year;
@@ -429,13 +544,24 @@ int A_Abort()
         abort_key = Key_Pressed();
         if (abort_key == 1)
         {
+            LCD_Clear();
             return 1;
+            
         }
         else if (abort_key == 2)
         {
+            LCD_Clear();
             return 0;
         }
     }
+}
+
+/* Tracking whether any of the alarms is on */
+int Alarm_State(){
+    if (alarm_t>0){
+        return 1;
+    }
+    return 0;
 }
 
 /* Handling the things once enter alarm setting */
@@ -471,19 +597,31 @@ void Alarm_setting(int *LEVEL, int *ITEM)
             {
                 if (alarms[count].Alarm_state == 0)
                 {
-                    if (Edit_Alarm(count))
-                    {
-                        alarm_t+=1;
-                        LCD_Clear();
-                        LCD_SetCursor(0, 1);
-                        LCD_String("ALARM CREATED");
-                        LCD_SetCursor(1, 1);
-                        //LCD_Num(count);
-                        LCD_String("SUCESSFULLY");
+                    while(1){
+                        if (Edit_Alarm(count))
+                        {
+                            alarm_t += 1;
+                            LCD_Clear();
+                            LCD_SetCursor(0, 1);
+                            LCD_String("ALARM CREATED");
+                            LCD_SetCursor(1, 1);
+                            //LCD_Num(count);
+                            LCD_String("SUCESSFULLY");
+                            _delay_ms(1000);
 
-                        A_Sort();
+                            A_Sort();
+                            *LEVEL=2;
+                            //ITEM[*LEVEL] = 0;
+                            return; 
+                        }
+                        else if(A_Abort())
+                        {
+                            *LEVEL=2;
+                            //ITEM[*LEVEL] = 0;
+                            return;                        
+                        }        
                     }
-                    break;
+ 
                 }
             }
 
@@ -561,7 +699,7 @@ void Alarm_setting(int *LEVEL, int *ITEM)
 
                 if (a_key == 1)
                 {
-                    *LEVEL+=1;
+                    *LEVEL += 1;
                     LCD_Clear();
                     while (1)
                     {
@@ -646,7 +784,7 @@ void Alarm_setting(int *LEVEL, int *ITEM)
                 else if (a_key == 2)
                 {
                     LCD_Clear();
-                    *LEVEL-=1;
+                    *LEVEL -= 1;
                     break;
                 }
                 else if (a_key == 3)
@@ -738,7 +876,6 @@ void Alarm_setting(int *LEVEL, int *ITEM)
     }
 }
 
-
 /* Things happening during an alarm time */
 void Alarm_Time_Functionality()
 { // check the alarm time with current time for activate the alarm
@@ -757,7 +894,7 @@ void Alarm_Time_Functionality()
     }
     else if (position == 1)
     {
-         s_value= ring_alarm(melody2);
+        s_value = ring_alarm(melody2);
     }
     else if (position == 2)
     {
@@ -781,7 +918,7 @@ void Alarm_Time_Functionality()
         else
         {
             alarms[ha_count].A_Time[1] = (alarms[ha_count].A_Time[1]) % snooze_time;
-            alarms[ha_count].A_Time[0]++;
+            alarms[ha_count].A_Time[0]+=1;
         }
     }
     A_Sort();

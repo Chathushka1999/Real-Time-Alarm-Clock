@@ -47,7 +47,7 @@ int ring_alarm(int song[]){
 		
 		if (!(PINB & (1<<5))){                                               // stop the alarm------------------->>>>>
 			return 1;}
-		else if (!(PINB & (1<<2))){                                          // snooze the alarm------------------->>>>>
+		else if (!(PINB & (1<<1))){                                          // snooze the alarm------------------->>>>>
 			return 0;}
 		
 		playNote( noteDuration * 0.9, song[thisNote]);                   // play the note for 90% of the duration, leaving 10% as a pause

@@ -8,8 +8,6 @@
 #include "stdutils.h"
 
 //#define F_CPU 8000000UL
-
-
 struct rtc_t{ 
 	uint8_t sec;                         //allocating int memory for storing seconds
 	uint8_t min;                         //allocating int memory for storing minutes
@@ -36,8 +34,8 @@ void I2C_Stop(void);
 void I2C_Write(uint8_t v_i2cData_u8);
 uint8_t I2C_Read(uint8_t v_ackOption_u8);
 void RTC_Initialize(void);
-void RTC_Set_Time(rtc_t *rtc);                  				// set the given time to rtc module
-void RTC_Get_Time(rtc_t *rtc);                  				// get the current keep track time in rtc
+void RTC_Set_Time(rtc_t *);                  				// set the given time to rtc module
+void RTC_Get_Time(rtc_t *);                  				// get the current keep track time in rtc
 
 
 

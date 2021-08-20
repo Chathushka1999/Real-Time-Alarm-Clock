@@ -100,17 +100,18 @@ void LCD_TwoDigit (int num){
 	
 }
 
-void Display_Time(int d_c_mode){
-	RTC_Get_Time(&rtc);
+void Display_Time(int d_c_mode,int STATE){
+	rtc_t r_rtc;
+	RTC_Get_Time(&r_rtc);
 	if(d_c_mode==0 ){                                // check the time mode and convert the hour appropriately
 		LCD_SetCursor(0,12);
-		if (rtc.hour==0){
-			rtc.hour=12;
+		if (r_rtc.hour==0){
+			r_rtc.hour=12;
 		LCD_String("AM");}
-		else if(rtc.hour==12){
+		else if(r_rtc.hour==12){
 		LCD_String("PM");}
-		else if(rtc.hour>12){
-			rtc.hour=rtc.hour-12;
+		else if(r_rtc.hour>12){
+			r_rtc.hour=r_rtc.hour-12;
 		LCD_String("PM");}
 		else{
 		LCD_String("AM");}
@@ -118,19 +119,20 @@ void Display_Time(int d_c_mode){
 	else{
 	LCD_SetCursor(0,4);}
 	
-	LCD_TwoDigit((rtc.hour));                            // print the time in display
+	LCD_TwoDigit((r_rtc.hour));                            // print the time in display
 	LCD_String(":");
-	LCD_TwoDigit((rtc.min));
+	LCD_TwoDigit((r_rtc.min));
 	LCD_String(":");
-	LCD_TwoDigit((rtc.sec));
+	LCD_TwoDigit((r_rtc.sec));
 	
 	LCD_SetCursor(1,3);                                  // print the date in display
-	LCD_TwoDigit((rtc.date));
+	LCD_TwoDigit((r_rtc.date));
 	LCD_String(":");
-	LCD_TwoDigit((rtc.month));
+	LCD_TwoDigit((r_rtc.month));
 	LCD_String(":");
-	LCD_Num((rtc.year)+2000);
+	LCD_Num((r_rtc.year)+2000);
 
-/* 	if(alarm_t>0){
-		LCD_String("  *"); */
+	if(STATE){
+		LCD_String("  *"); 
 	}
+}

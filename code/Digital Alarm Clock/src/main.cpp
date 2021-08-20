@@ -5,6 +5,8 @@
 #include "Time.h"
 #include "Tone_Notes.h"
 
+#define F_CPU 8000000UL 
+
 //Functions defined inside manin loop
 
 void setup();
@@ -17,6 +19,7 @@ int level = 0;				//Setup handling
 int item[4] = {0, 0, 0, 0}; // Moving with in items of a level
 
 int c_mode = 0; // 0 ->12 hour , 1-> 24hour
+
 
 int main()
 {
@@ -31,14 +34,13 @@ int main()
 			Main_Menu();
 			PORTD &= ~(1 << 3); // 0 V at port pin 7.
 		}
-
 		if (Alarm_Time())
 		{
 			Alarm_Time_Functionality();
 		}
 		else
 		{
-			Display_Time(c_mode); // Display the current Time and Date on display
+			Display_Time(c_mode, Alarm_State()); // Display the current Time and Date on display
 		}
 	}
 }

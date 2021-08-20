@@ -4,6 +4,7 @@
 /*Getting input the current time... and get user input for clock time in a sequential manner as minute--> hour and return */
 int Time_Set()
 {
+	rtc_t t_rtc;
 	RTC_Get_Time(&t_rtc);
 	//keeping reference to the change rather than changing at once
 	uint8_t r_hour = t_rtc.hour, r_min = t_rtc.min;
@@ -61,6 +62,7 @@ int Time_Set()
 			//update time sucessfully and return 1 to indicate functions happened successufully
 			t_rtc.hour=r_hour;
 			t_rtc.min=r_min;
+			RTC_Set_Time(&t_rtc);
 			return 1;
 		}
 		else if (t_key == 2)
@@ -83,6 +85,8 @@ int Date_Set()
 {
 	//variable for handling key press inside the function
 	int d_key=0;
+	rtc_t t_rtc;
+	RTC_Get_Time(&t_rtc);
 	int r_date = t_rtc.date;
 	int r_month = t_rtc.month;
 	int r_year = t_rtc.year + 2000;
@@ -175,10 +179,11 @@ int Date_Set()
 		if (d_key == 1)
 		{
 
+			/* Handle the delay during the date setting functionality */
+			RTC_Get_Time(&t_rtc);
 			t_rtc.date = r_date;
 			t_rtc.month = r_month;
 			t_rtc.year = r_year - 2000;
-
 			RTC_Set_Time(&t_rtc);
 			return 1;
 		}
@@ -226,8 +231,6 @@ void Date_Time(int* LEVEL, int* ITEM)
 			//level 3 hadling of Time set
 			if (Time_Set())
 			{
-				RTC_Set_Time(&t_rtc);
-
 				LCD_Clear();
 				LCD_SetCursor(0, 0);
 				LCD_String("TIME CHANGED");

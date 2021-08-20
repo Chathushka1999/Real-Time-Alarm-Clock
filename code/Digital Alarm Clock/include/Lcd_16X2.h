@@ -11,7 +11,6 @@
 #define RSel PD0                            //RS Pin
 #define ENable PD1                          //E Pin
 
-rtc_t rtc;
 
 void LCD_Commandgiver(unsigned char);
 void LCD_Initializer (void);                //Initializes the LCD
@@ -22,7 +21,7 @@ void LCD_Clear();                           //Clears the display
 void LCD_SetCursor (char, char);            //Send string to LCD with XY position
 void LCD_TwoDigit (int);
 
-void Display_Time(int)    ;                  // print the Time and Date HH:MM:SS, DD:MM:YYYY format
+void Display_Time(int,int)    ;                  // print the Time and Date HH:MM:SS, DD:MM:YYYY format
 
 
 

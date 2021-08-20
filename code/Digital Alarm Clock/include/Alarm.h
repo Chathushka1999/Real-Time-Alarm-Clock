@@ -4,7 +4,7 @@
 #include <util/delay.h>
 #include <stdlib.h>
 
-//#define F_CPU 8000000UL
+//
 
 #define SPEAKER_PORT PORTD                                        // defining the speaker connected port/register /pin number
 #define SPEAKER_DDR DDRD
