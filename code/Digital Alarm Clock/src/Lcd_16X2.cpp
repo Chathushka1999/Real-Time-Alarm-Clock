@@ -85,7 +85,7 @@ void LCD_Num (int num){
 			break;
 		}
 	}
-	for (index;index >=0;index--){
+	for (;index >=0;index--){
 		LCD_Character(digit[index]+48);
 	}
 }
