@@ -245,6 +245,7 @@ void Repeat_Handle(int posi)
     if (rs_state == 0)
     {
         alarms[posi].Alarm_state = 0;
+        alarm_t-=1;
     }
     else if (rs_state == 1)
     {
