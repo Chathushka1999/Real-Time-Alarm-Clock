@@ -1,0 +1,27 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{}%
+\contentsline {section}{\numberline {2}Methodology}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Micro Product}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Operational Requirements}{3}{}%
+\contentsline {subsection}{\numberline {2.3}Main Component Selection}{3}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}ATmega328P}{3}{}%
+\contentsline {subsubsection}{\numberline {2.3.2}16x2 LCD Display}{3}{}%
+\contentsline {subsubsection}{\numberline {2.3.3}DS3232 RTC Module}{4}{}%
+\contentsline {subsubsection}{\numberline {2.3.4}Buttons and Switches}{4}{}%
+\contentsline {subsubsection}{\numberline {2.3.5}Speaker}{4}{}%
+\contentsline {subsection}{\numberline {2.4}Design Flow}{4}{}%
+\contentsline {subsection}{\numberline {2.5}Parameters}{5}{}%
+\contentsline {subsection}{\numberline {2.6}Functional Units}{5}{}%
+\contentsline {subsubsection}{\numberline {2.6.1}DisplayTime}{5}{}%
+\contentsline {subsubsection}{\numberline {2.6.2}Alarm Ringing}{5}{}%
+\contentsline {subsubsection}{\numberline {2.6.3}Main Menu}{5}{}%
+\contentsline {subsection}{\numberline {2.7}PCB Design}{6}{}%
+\contentsline {subsection}{\numberline {2.8}Enclosure Design}{6}{}%
+\contentsline {section}{\numberline {3}Results}{7}{}%
+\contentsline {section}{\numberline {4}Discussion}{9}{}%
+\contentsline {subsection}{\numberline {4.1}Storing Alarm Tones}{9}{}%
+\contentsline {subsection}{\numberline {4.2}Bouncing of Keys}{9}{}%
+\contentsline {subsection}{\numberline {4.3}Alarm-Handling in Setup}{9}{}%
+\contentsline {section}{\numberline {5}Acknowledgements}{9}{}%
+\contentsline {section}{\numberline {A}PCB Schematic Diagram}{11}{}%
+\contentsline {section}{\numberline {B}PCB Layout}{12}{}%
+\contentsline {section}{\numberline {C}Enclosure Design}{14}{}%

@@ -1,0 +1,403 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.22)  22 AUG 2021 21:53
+entering extended mode
+**e:/Project/Report/main.tex
+(e:/Project/Report/main.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-07-12> (D:\MikiTex\tex/latex/base\article.cls
+Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
+(D:\MikiTex\tex/latex/base\size12.clo
+File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count182
+\c@section=\count183
+\c@subsection=\count184
+\c@subsubsection=\count185
+\c@paragraph=\count186
+\c@subparagraph=\count187
+\c@figure=\count188
+\c@table=\count189
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (D:\MikiTex\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+ (D:\MikiTex\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+) (D:\MikiTex\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (D:\MikiTex\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (D:\MikiTex\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (D:\MikiTex\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+) (D:\MikiTex\tex/latex/tools\array.sty
+Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
+\col@sep=\dimen141
+\ar@mcellbox=\box50
+\extrarowheight=\dimen142
+\NC@list=\toks17
+\extratabsurround=\skip49
+\backup@length=\skip50
+\ar@cellbox=\box51
+) (D:\MikiTex\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
+) (D:\MikiTex\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count190
+\float@exts=\toks20
+\float@box=\box52
+\@float@everytoks=\toks21
+\@floatcapt=\box53
+) (D:\MikiTex\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen143
+\WF@size=\dimen144
+\c@WF@wrappedlines=\count191
+\WF@box=\box54
+\WF@everypar=\toks22
+Package: wrapfig 2003/01/31  v 3.6
+) (D:\MikiTex\tex/latex/caption\caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (D:\MikiTex\tex/latex/caption\caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen145
+\captionmargin@=\dimen146
+\captionwidth=\dimen147
+\caption@tempdima=\dimen148
+\caption@indent=\dimen149
+\caption@parindent=\dimen150
+\caption@hangindent=\dimen151
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count192
+\c@continuedfloat=\count193
+Package caption Info: float package is loaded.
+Package caption Info: wrapfig package is loaded.
+) (D:\MikiTex\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count194
+\l__pdf_internal_box=\box55
+) (main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+ (D:\MikiTex\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count195
+\scratchdimen=\dimen152
+\scratchbox=\box56
+\nofMPsegments=\count196
+\nofMParguments=\count197
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count198
+\MPscratchDim=\dimen153
+\MPnumerator=\count199
+\makeMPintoPDFobject=\count266
+\everyMPtoPDFconversion=\toks24
+) (D:\MikiTex\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (D:\MikiTex\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 29.
+<./Images//mora.png, id=1, 307.1475pt x 326.21875pt>
+File: ./Images//mora.png Graphic file (type png)
+<use ./Images//mora.png>
+Package pdftex.def Info: ./Images//mora.png  used on input line 30.
+(pdftex.def)             Requested size: 153.57336pt x 163.10896pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 34.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 34.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 34.
+
+Overfull \hbox (6.2694pt too wide) in paragraph at lines 43--43
+[]|\OT1/cmr/m/n/12 G.S.M.U.K.Samarakoon| 
+ []
+
+[1
+
+
+{C:/Users/Hp/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./Images//mora.png>] (main.toc)
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [1
+
+
+]
+Underfull \hbox (badness 3058) in paragraph at lines 78--81
+[]\OT1/cmr/m/n/12 Considering the mem-ory re-quire-
+ []
+
+
+Underfull \hbox (badness 4181) in paragraph at lines 82--85
+[]\OT1/cmr/m/n/12 The com-mu-ni-ca-tion be-tween the
+ []
+
+
+Underfull \hbox (badness 1975) in paragraph at lines 106--108
+\OT1/cmr/m/n/12 Starting with re-quire-ments the fol-low-ing
+ []
+
+[2
+
+]
+Underfull \hbox (badness 1533) in paragraph at lines 116--117
+\OT1/cmr/m/n/12 This doc-u-ment ex-plains about a sam-ple
+ []
+
+<./Images//chip.jpg, id=21, 803.0pt x 803.0pt>
+File: ./Images//chip.jpg Graphic file (type jpg)
+<use ./Images//chip.jpg>
+Package pdftex.def Info: ./Images//chip.jpg  used on input line 126.
+(pdftex.def)             Requested size: 93.79857pt x 93.79501pt.
+
+Underfull \hbox (badness 4582) in paragraph at lines 129--133
+[]\OT1/cmr/m/n/12 Design of the dig-i-tal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--133
+\OT1/cmr/m/n/12 alarm clock re-quires
+ []
+
+
+Underfull \hbox (badness 7203) in paragraph at lines 129--133
+\OT1/cmr/m/n/12 Input-Output pins to
+ []
+
+
+Underfull \hbox (badness 5519) in paragraph at lines 129--133
+\OT1/cmr/m/n/12 es-tab-lish proper com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--133
+\OT1/cmr/m/n/12 mu-ni-ca-tion be-tween
+ []
+
+
+Underfull \hbox (badness 1117) in paragraph at lines 129--133
+\OT1/cmr/m/n/12 vice. More than one
+ []
+
+
+Underfull \hbox (badness 4595) in paragraph at lines 129--133
+\OT1/cmr/m/n/12 PWM chan-nel is ex-
+ []
+
+<./Images//display.png, id=22, 803.0pt x 803.0pt>
+File: ./Images//display.png Graphic file (type png)
+<use ./Images//display.png>
+Package pdftex.def Info: ./Images//display.png  used on input line 145.
+(pdftex.def)             Requested size: 93.79857pt x 93.79501pt.
+
+Underfull \hbox (badness 5847) in paragraph at lines 149--154
+\OT1/cmr/m/n/12 which cre-ates an in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--154
+\OT1/cmr/m/n/12 ter-ac-tive en-vi-ron-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--154
+\OT1/cmr/m/n/12 the func-tion-al-i-ties of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--154
+\OT1/cmr/m/n/12 for alarm and time
+ []
+
+[3 <./Images//chip.jpg> <./Images//display.png>] [4]
+Underfull \hbox (badness 1158) in paragraph at lines 228--233
+\OT1/cmr/m/n/12 When the op-er-a-tional pointer en-ters the
+ []
+
+[5]
+<./Images//drawing.jpg, id=35, 1470.49374pt x 3835.32875pt>
+File: ./Images//drawing.jpg Graphic file (type jpg)
+<use ./Images//drawing.jpg>
+Package pdftex.def Info: ./Images//drawing.jpg  used on input line 272.
+(pdftex.def)             Requested size: 93.79857pt x 244.62334pt.
+
+Underfull \hbox (badness 3679) in paragraph at lines 275--280
+\OT1/cmr/m/n/12 de-signed with a very
+ []
+
+
+Underfull \hbox (badness 3503) in paragraph at lines 275--280
+\OT1/cmr/m/n/12 sim-ple ex-te-rior to be
+ []
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 275--280
+\OT1/cmr/m/n/12 han-dled eas-ily by any
+ []
+
+
+Underfull \hbox (badness 7558) in paragraph at lines 275--280
+\OT1/cmr/m/n/12 cord-ing to the feed-
+ []
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 275--280
+\OT1/cmr/m/n/12 ini-tial sketch. Then,
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 275--280
+\OT1/cmr/m/n/12 aided de-sign, and the
+ []
+
+
+Underfull \hbox (badness 8094) in paragraph at lines 275--280
+\OT1/cmr/m/n/12 soft-ware called Solid-
+ []
+
+[6 <./Images//drawing.jpg>] [7]
+<./Images//flow.png, id=43, 989.94844pt x 459.21562pt>
+File: ./Images//flow.png Graphic file (type png)
+<use ./Images//flow.png>
+Package pdftex.def Info: ./Images//flow.png  used on input line 314.
+(pdftex.def)             Requested size: 469.0pt x 217.5551pt.
+<./Images//flow2.png, id=44, 801.74532pt x 289.83281pt>
+File: ./Images//flow2.png Graphic file (type png)
+<use ./Images//flow2.png>
+Package pdftex.def Info: ./Images//flow2.png  used on input line 322.
+(pdftex.def)             Requested size: 342.368pt x 123.7677pt.
+ [8
+
+ <./Images//flow.png> <./Images//flow2.png>]
+Underfull \hbox (badness 1466) in paragraph at lines 349--353
+\OT1/cmr/m/n/12 tween the val-ues 300$\OMS/cmsy/m/n/12 !$\OT1/cmr/m/n/12 1000 mil-lisec-onds.
+ []
+
+(main.bbl [9
+
+]) [10
+
+]
+<./Images//schematic.pdf, id=57, 794.97pt x 614.295pt>
+File: ./Images//schematic.pdf Graphic file (type pdf)
+<use ./Images//schematic.pdf>
+Package pdftex.def Info: ./Images//schematic.pdf  used on input line 375.
+(pdftex.def)             Requested size: 469.0pt x 362.42152pt.
+ [11
+
+ <./Images//schematic.pdf>]
+<./Images//layout.pdf, id=79, 794.97pt x 614.295pt>
+File: ./Images//layout.pdf Graphic file (type pdf)
+<use ./Images//layout.pdf>
+Package pdftex.def Info: ./Images//layout.pdf  used on input line 383.
+(pdftex.def)             Requested size: 469.0pt x 362.42152pt.
+<./Images//front.png, id=80, 521.5485pt x 389.65575pt>
+File: ./Images//front.png Graphic file (type png)
+<use ./Images//front.png>
+Package pdftex.def Info: ./Images//front.png  used on input line 389.
+(pdftex.def)             Requested size: 328.29857pt x 245.28226pt.
+<./Images//back.png, id=81, 576.9555pt x 395.67825pt>
+File: ./Images//back.png Graphic file (type png)
+<use ./Images//back.png>
+Package pdftex.def Info: ./Images//back.png  used on input line 391.
+(pdftex.def)             Requested size: 328.29857pt x 225.15253pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./Images//layout.pdf>]
+
+LaTeX Warning: Text page 13 contains only floats.
+
+[13 <./Images//front.png> <./Images//back.png>]
+<./Images//fronte.png, id=102, 829.59938pt x 566.115pt>
+File: ./Images//fronte.png Graphic file (type png)
+<use ./Images//fronte.png>
+Package pdftex.def Info: ./Images//fronte.png  used on input line 400.
+(pdftex.def)             Requested size: 234.5pt x 160.01416pt.
+<./Images//tope.png, id=103, 653.44125pt x 623.32875pt>
+File: ./Images//tope.png Graphic file (type png)
+<use ./Images//tope.png>
+Package pdftex.def Info: ./Images//tope.png  used on input line 407.
+(pdftex.def)             Requested size: 234.5pt x 223.68483pt.
+<./Images//backbb.png, id=104, 779.91376pt x 532.99126pt>
+File: ./Images//backbb.png Graphic file (type png)
+<use ./Images//backbb.png>
+Package pdftex.def Info: ./Images//backbb.png  used on input line 414.
+(pdftex.def)             Requested size: 281.40286pt x 192.30774pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[14 <./Images//fronte.png> <./Images//tope.png>]
+<./Images//backb.png, id=110, 843.15pt x 528.47438pt>
+File: ./Images//backb.png Graphic file (type png)
+<use ./Images//backb.png>
+Package pdftex.def Info: ./Images//backb.png  used on input line 422.
+(pdftex.def)             Requested size: 281.40286pt x 176.38078pt.
+<./Images//backe.png, id=111, 733.23938pt x 474.27188pt>
+File: ./Images//backe.png Graphic file (type png)
+<use ./Images//backe.png>
+Package pdftex.def Info: ./Images//backe.png  used on input line 429.
+(pdftex.def)             Requested size: 281.40286pt x 182.01991pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Images//battery.png, id=112, 712.91344pt x 512.66531pt>
+File: ./Images//battery.png Graphic file (type png)
+<use ./Images//battery.png>
+Package pdftex.def Info: ./Images//battery.png  used on input line 436.
+(pdftex.def)             Requested size: 281.40286pt x 202.35585pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15 <./Images//backbb.png> <./Images//backb.png>] [16 <./Images//backe.png> <./Images//battery.png>] (main.aux) ) 
+Here is how much of TeX's memory you used:
+ 2865 strings out of 478868
+ 48522 string characters out of 2864832
+ 349614 words of memory out of 3000000
+ 20784 multiletter control sequences out of 15000+600000
+ 409956 words of font info for 48 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,11n,66p,236b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\Hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk> <C:\Users\Hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><D:/MikiTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikiTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/MikiTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikiTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MikiTex/fonts/type1/public/amsfonts/cm/cmr17.pfb><D:/MikiTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikiTex/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on main.pdf (17 pages, 3019813 bytes).
+PDF statistics:
+ 165 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+
